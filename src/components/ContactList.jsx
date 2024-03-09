@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import React from "react";
 import ContactRow from "./ContactRow";
 
@@ -14,7 +14,7 @@ function ContactList() {
     useEffect(() => {
         // Write a console.log() statement within the component, before the return statement, and ensure you can log out all the contacts correctly.
         console.log(`These are the contacts`, contacts);
-    })
+    }, [contacts]);
     return (
         <table>
             <thead>
@@ -29,11 +29,11 @@ function ContactList() {
                     <td>Phone</td>
                 </tr>
                 {contacts.map((contact) => {
-        return <ContactRow key={contact.id} contact={contact} />;
+                    return <ContactRow key={contact.id} contact={contact} />;
         })}
             </tbody>
         </table>
     );
 }
 
-export default ContactList
+export default ContactList;

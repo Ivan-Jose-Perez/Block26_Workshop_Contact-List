@@ -1,8 +1,8 @@
-import { preprocessCSS } from "vite";
-import ContactList from "./ContactList";
+// import ContactList from "./ContactList";
 import React from "react";
 
 function ContactRow ({ contact }) {
+    console.log(`This is the contact`, contact);
     return (
         <tr>
             <td>{contact.name}</td>
@@ -12,4 +12,4 @@ function ContactRow ({ contact }) {
     );
 }
 
-export default ContactRow
+export default ContactRow;
