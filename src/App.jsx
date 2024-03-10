@@ -14,23 +14,19 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import React from 'react'; 
 import ContactList from './components/ContactList'
+import SelectedContact from './components/SelectedContact';
 
 function App() {
   const [selectedContactId, setSelectedContactId] = useState(null);
 
-  console.log("Rendering App with selectedContactId: ", selectedContactId);
-
   return (
-      <div className="App">
-          <ContactList setSelectedContactId={setSelectedContactId} />
-          {selectedContactId && (
-              <div>
-                  {/* Should render details of the selected contact here */}
-                  <h2>Selected Contact ID: {selectedContactId}</h2>
-                  {/* Fetch and display contact details here */}
-              </div>
-          )}
-      </div>
+    <div className="App">
+      {!selectedContactId ? (
+        <ContactList setSelectedContactId={setSelectedContactId} />
+      ) : (
+        <SelectedContact selectedContactId={selectedContactId} setSelectedContactId={setSelectedContactId} />
+      )}
+    </div>
   );
 }
 
